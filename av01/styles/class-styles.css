@@ -28,7 +28,6 @@
 
 .grupo-icones {
     display: flex;
-    color: var(--texto-branco);
     text-decoration: none;
     font-size: 3rem;
     gap: 1rem;
@@ -43,6 +42,7 @@
 
         &:active {
             transform: scale(0.95);
+            color: var(--mauve-frappe);
         }
     }
 
