@@ -14,7 +14,6 @@
         width: 100%;
         height: calc(100vh - 82px);
         z-index: -1;
-        transform: scaleX(-1);
     }
 }
 
@@ -22,7 +21,7 @@
     bottom: 4rem;
     left: 2rem;
     text-shadow: 1px 1px 2px var(--base-frappe);
-    max-width: 50rem;
+    max-width: 42rem;
 
     & h1 {
         font-size: 4rem;
@@ -37,13 +36,13 @@
     }
 }
 
-#floricultura {
+#pets {
     background-color: var(--base-latte);
     color: var(--texto-latte);
     justify-content: space-between;
 }
 
-#floricultura-content {
+#pets-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -60,7 +59,7 @@
     }
 }
 
-#floricultura-show {
+#pets-show {
     display: flex;
     margin-right: 4rem;
     gap: 4rem;
@@ -86,21 +85,23 @@
         object-fit: cover;
         width: 100%;
         aspect-ratio: 1 / 1;
-        box-shadow: 0 0 0 2px var(--base-frappe);
+        box-shadow: 0 0 0 3px var(--base-frappe);
         transition: transform 100ms ease;
 
         &:active {
+            box-shadow: 0 0 0 3px var(--mauve-latte);
             transform: scale(0.9);
         }
     }
 }
 
-#sobre-mim {
+#sobre {
     padding: 0;
-    background-color: var(--red-frappe);
+    color: var(--texto-latte);
+    background-color: var(--crust-latte);
     min-height: 500px;
 
-    & #sobre-mim-content {
+    & #sobre-content {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -163,28 +164,24 @@
     }
 }
 
-#contato-form input, #contato-form textarea, #contato-form input::placeholder, #contato-form textarea::placeholder {
+#contato-form input, #contato-form textarea {
     color: var(--texto-branco);
-    font-size: 1rem;
-    border-radius: 4px;
     border: 1px solid var(--mantle-latte);
-    background-color: transparent;
-    padding: 0.5rem 0.75rem;
 }
 
 @media screen and (max-width: 1300px) {
-    #floricultura {
+    #pets {
         gap: 2rem;
         flex-direction: column;
         align-items: center;
         justify-content: center;
 
-        & #floricultura-content {
+        & #pets-content {
             max-width: 600px;
             text-align: center;
         }
 
-        & #floricultura-show {
+        & #pets-show {
             gap: 2rem;
             margin-right: 0;
         }
@@ -192,12 +189,12 @@
 }
 
 @media screen and (max-width: 1000px) {
-    #sobre-mim > img {
+    #sobre > img {
         width: 100%;
         height: 500px;
     }
 
-    #sobre-mim-content {
+    #sobre-content {
         margin-left: 0 !important;
         margin-top: 500px !important;
     }
