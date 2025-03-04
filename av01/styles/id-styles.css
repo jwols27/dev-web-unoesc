@@ -1,0 +1,226 @@
+#intro {
+    height: calc(100vh - 82px);
+
+    & > * {
+        position: absolute;
+    }
+
+    & img {
+        top: 0;
+        left: 0;
+        filter: blur(8px);
+        opacity: 0.75;
+        object-fit: cover;
+        width: 100%;
+        height: calc(100vh - 82px);
+        z-index: -1;
+        transform: scaleX(-1);
+    }
+}
+
+#intro-content {
+    bottom: 4rem;
+    left: 2rem;
+    text-shadow: 1px 1px 2px var(--base-frappe);
+    max-width: 50rem;
+
+    & h1 {
+        font-size: 4rem;
+        margin: 0;
+        line-height: 4rem;
+    }
+
+    & p {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        font-weight: 600;
+    }
+}
+
+#floricultura {
+    background-color: var(--base-latte);
+    color: var(--texto-latte);
+    justify-content: space-between;
+}
+
+#floricultura-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 35rem;
+
+    & h2 {
+        font-size: 2rem;
+        margin: 0 0 1rem 0;
+    }
+
+    & p {
+        line-height: 2;
+        margin: 0;
+    }
+}
+
+#floricultura-show {
+    display: flex;
+    margin-right: 4rem;
+    gap: 4rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+
+    & > div {
+        max-width: 10rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 1 / 1;
+        gap: 0.75rem;
+        font-size: 1.1rem;
+
+    }
+
+    & > div > img {
+        border-radius: 50%;
+        object-fit: cover;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        box-shadow: 0 0 0 2px var(--base-frappe);
+        transition: transform 100ms ease;
+
+        &:active {
+            transform: scale(0.9);
+        }
+    }
+}
+
+#sobre-mim {
+    padding: 0;
+    background-color: var(--red-frappe);
+    min-height: 500px;
+
+    & #sobre-mim-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 4rem 2rem;
+        margin-left: 50%;
+
+        & h2 {
+            font-size: 2rem;
+            margin: 0 0 1rem 0;
+        }
+
+        & p {
+            line-height: 2;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    & > img {
+        position: absolute;
+        height: 100%;
+        width: 50%;
+        object-fit: cover;
+    }
+}
+
+#contato {
+    background-color: var(--surface0-frappe);
+    padding: 2rem 8rem;
+    display: flex;
+
+    & > * {
+        padding: 1rem 0;
+        width: 50%;
+    }
+}
+
+#contato-info {
+    padding-right: 2rem;
+
+    & p {
+        margin: 4px 0;
+    }
+
+    & .grupo-icones {
+        margin-top: auto;
+    }
+}
+
+#contato-form {
+    gap: 4px;
+
+    & h3 {
+        margin: 0 0 0.5rem;
+    }
+
+    & button {
+        margin-top: 1rem;
+        width: 15rem;
+    }
+}
+
+#contato-form input, #contato-form textarea, #contato-form input::placeholder, #contato-form textarea::placeholder {
+    color: var(--texto-branco);
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid var(--mantle-latte);
+    background-color: transparent;
+    padding: 0.5rem 0.75rem;
+}
+
+@media screen and (max-width: 1300px) {
+    #floricultura {
+        gap: 2rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        & #floricultura-content {
+            max-width: 600px;
+            text-align: center;
+        }
+
+        & #floricultura-show {
+            gap: 2rem;
+            margin-right: 0;
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #sobre-mim > img {
+        width: 100%;
+        height: 500px;
+    }
+
+    #sobre-mim-content {
+        margin-left: 0 !important;
+        margin-top: 500px !important;
+    }
+
+    #contato {
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        gap: 2rem;
+
+        & > * {
+            width: 90%;
+            padding: 0;
+        }
+
+        & .grupo-icones {
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        & #contato-form button {
+            width: 100%;
+        }
+    }
+}

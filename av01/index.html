@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores Basil</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/id-styles.css">
+    <link rel="stylesheet" href="styles/class-styles.css">
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+          rel="stylesheet">
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+            rel="stylesheet"
+    />
+</head>
+<body>
+<header>
+    <div class="flex-row">
+        <h1>Flores Basil 🌷</h1>
+        <div class="flex-row" style="gap: 2rem;">
+            <a href="#floricultura">Floricultura</a>
+            <a href="#sobre-mim">Sobre mim</a>
+            <a href="#contato">Contato</a>
+        </div>
+    </div>
+</header>
+<main>
+    <section id="intro" class="banner">
+        <div id="intro-content">
+            <h1>Encante quem você ama com flores</h1>
+            <p>Venha conhecer a melhor floricultura do Brasil 💝</p>
+            <a href="#floricultura" class="button">Saiba mais 🧐</a>
+        </div>
+        <img src="assets/campo_tulipas.jpg" alt="Ana Florida"/>
+    </section>
+    <section id="floricultura" class="banner flex-row">
+        <div id="floricultura-content">
+            <h2>Floricultura</h2>
+            <p>Na nossa floricultura você pode encontrar o melhor do mundo das flores.</p>
+            <p>Aqui você vai encontrar exatamente o que precisa. Uma ocasião especial? Um presente? Flores para sua
+                casa?
+                Pode contar conosco!</p>
+        </div>
+        <div id="floricultura-show">
+            <div>
+                <img src="assets/flores.jpg" alt="flores" title="FLores" draggable="false"/>
+                <b>Flores</b>
+            </div>
+            <div>
+                <img src="assets/buque.jpg" alt="buque" title="Buquê" draggable="false"/>
+                <b>Buquês</b>
+            </div>
+            <div>
+                <img src="assets/especial.JPG" alt="eventos especiais" title="Eventos especiais" draggable="false"/>
+                <b>Eventos especiais</b>
+            </div>
+        </div>
+    </section>
+    <section id="sobre-mim" class="banner flex-row">
+        <img src="assets/01.jpg" alt="eu" title="Eu"/>
+
+        <div id="sobre-mim-content">
+            <h2>Sobre mim</h2>
+            <p>Sou Ana, apaixonada por flores e pela arte de transmitir sentimentos através delas.</p>
+            <p>
+                Aqui, cada arranjo é feito com carinho e atenção aos detalhes, garantindo que cada flor conte uma
+                história especial. Seja para presentear alguém querido, decorar um ambiente ou celebrar uma ocasião
+                marcante, minhas criações são feitas para encantar e emocionar.
+            </p>
+            <p>
+                Acredito que as flores têm o poder de iluminar o dia de qualquer pessoa, e é por isso que escolho cada
+                uma com amor e dedicação. Venha conhecer o meu trabalho e deixe-se envolver pela beleza da natureza em
+                cada pétala!
+            </p>
+        </div>
+    </section>
+    <section id="contato" class="banner">
+        <div id="contato-info" class="flex-column">
+            <h2>Entre em contato</h2>
+            <p>Estamos abertos de segunda-feira à sexta-feira</p>
+            <p style="margin-bottom: 1rem">Das 08:00 às 11:00 e das 14:00 às 18:00</p>
+            <p><b>Nosso endereço:</b></p>
+            <p style="margin-bottom: 1rem">Rua Caramelo 1025 - Reino Doce, Terra de Ooo</p>
+            <p><b>Telefone:</b> (49) 0413-0612</p>
+            <div class="grupo-icones">
+                <a>
+                    <i class="fa-brands fa-square-whatsapp"></i>
+                </a>
+                <a>
+                    <i class="fa-brands fa-square-facebook"></i>
+                </a>
+                <a>
+                    <i class="fa-brands fa-square-instagram"></i>
+                </a>
+                <a href="">
+                    <i class="fa-brands fa-square-git"></i>
+                </a>
+            </div>
+        </div>
+        <div id="contato-form" class="flex-column">
+            <h3>Fale conosco!</h3>
+            <label for="nome"></label><input type="text" id="nome" placeholder="Nome completo"/>
+            <label for="email"></label><input type="email" id="email" placeholder="Seu e-mail"/>
+            <label for="mensagem"></label><textarea id="mensagem" placeholder="Mensagem" rows="6"></textarea>
+            <button id="enviar">Enviar</button>
+        </div>
+    </section>
+</main>
+<footer>
+    © 2025 Júlia Patricia Wolschick.
+    <br/>
+    Todos os direitos reservados.
+</footer>
+
+</body>
+</html>

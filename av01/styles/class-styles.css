@@ -1,0 +1,49 @@
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.align-center {
+    align-items: center;
+    justify-content: center;
+}
+
+.banner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 4rem 2rem;
+}
+
+.card {
+    border: 2px solid var(--overlay2-latte);
+    background-color: var(--mantle-latte);
+    border-radius: 8px;
+}
+
+.grupo-icones {
+    display: flex;
+    color: var(--texto-branco);
+    text-decoration: none;
+    font-size: 3rem;
+    gap: 1rem;
+    align-items: center;
+
+    & > a {
+        display: flex;
+        color: var(--texto-branco);
+        cursor: pointer;
+        transition: transform 100ms ease;
+        text-decoration: none;
+
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+
+}
