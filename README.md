@@ -2,14 +2,11 @@
 
 Avaliações da matéria Desenvolvimento Web da faculdade.
 
-## Avaliação 01
+## Avaliação 1 de 3
 
-Originalmente eu não percebi que o seguinte enunciado era um sugestão, se não teria feito outra coisa.
+Eu fiz uma landing page para uma ONG de resgate de pets.
 
-> "Ana possui uma floricultura na cidade e deseja criar uma landing page para expor os produtos que vende. Sabendo que
-> você é um ótimo programador web, ela te procurou para desenvolver essa página, que a princípio será apenas visual."
-
-A avaliação consiste em:
+Enunciado da avaliação:
 > Esta é uma atividade avaliativa que irá compor a média de A1 do componente curricular. Ela consiste na criação da
 > interface inicial de uma aplicação web, que será expandida com funcionalidades de CRUD na próxima entrega.
 
