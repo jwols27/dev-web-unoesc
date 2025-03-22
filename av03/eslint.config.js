@@ -7,7 +7,15 @@ export default tseslint.config(
     { ignores: ['dist'] },
     {
         extends: [
-            ...tseslint.configs.recommendedTypeChecked,
+            tseslint.configs.recommendedTypeChecked,
+            {
+                languageOptions: {
+                    parserOptions: {
+                        projectService: true,
+                        tsconfigRootDir: import.meta.dirname
+                    }
+                }
+            },
             ...tseslint.configs.stylisticTypeChecked
         ],
         files: ['**/*.{ts,tsx}'],

@@ -3,6 +3,7 @@ import './styles/class-styles.css';
 import { banners, gatos } from './data/imagens.ts';
 import HeaderJ from './layout/HeaderJ.tsx';
 import FooterJ from './layout/FooterJ.tsx';
+import { EmailForm } from './components/EmailForm.tsx';
 
 function App() {
     return (
@@ -20,7 +21,7 @@ function App() {
                             Saiba mais 🔎
                         </a>
                     </div>
-                    <img src={banners.cestaGatos} alt="Ana Florida" />
+                    <img src={banners.cestaGatos} alt="Cesta de gatos" />
                 </section>
                 <section id="pets" className="banner flex-row">
                     <div id="pets-content">
@@ -131,28 +132,7 @@ function App() {
                             </a>
                         </div>
                     </div>
-                    <div id="contato-form" className="flex-column">
-                        <h3>Fale conosco!</h3>
-                        <label htmlFor="nome"></label>
-                        <input
-                            type="text"
-                            id="nome"
-                            placeholder="Nome completo"
-                        />
-                        <label htmlFor="email"></label>
-                        <input
-                            type="email"
-                            id="email"
-                            placeholder="Seu e-mail"
-                        />
-                        <label htmlFor="mensagem"></label>
-                        <textarea
-                            id="mensagem"
-                            placeholder="Mensagem"
-                            rows={6}
-                        ></textarea>
-                        <button id="enviar">Enviar</button>
-                    </div>
+                    <EmailForm />
                 </section>
             </main>
             <FooterJ />
