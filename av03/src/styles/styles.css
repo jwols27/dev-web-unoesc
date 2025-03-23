@@ -1,6 +1,7 @@
 :root {
     --pink-latte: #ea76cb;
     --mauve-latte: #8839ef;
+    --red-latte: #d20f39;
     --overlay2-latte: #8c8fa1;
     --surface0-latte: #ccd0da;
     --base-latte: #eff1f5;
@@ -9,6 +10,7 @@
 
     --mauve-frappe: #ca9ee6;
     --lavender-frappe: #babbf1;
+    --overlay2-frappe: #737994;
     --surface0-frappe: #414559;
     --base-frappe: #303446;
     --mantle-frappe: #292c3c;
@@ -58,7 +60,17 @@ html, body {
 }
 
 body {
-    background-color: var(--base-frappe);
+    background-color: var(--surface0-frappe);
+}
+
+#root {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    & main {
+        flex: 1;
+    }
 }
 
 input, input::placeholder, textarea, textarea::placeholder {
@@ -79,10 +91,6 @@ main {
 
 header {
     scroll-snap-align: start;
-}
-
-#sobre, #pets {
-    scroll-snap-align: center;
 }
 
 footer {
@@ -119,6 +127,10 @@ header > div a {
     transition: transform 100ms ease;
 
     &:hover {
+        border-color: var(--mauve-latte);
+    }
+
+    &.active {
         border-color: var(--mauve-latte);
     }
 

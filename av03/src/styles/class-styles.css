@@ -22,6 +22,7 @@
 
 .card {
     border: 2px solid var(--overlay2-latte);
+    color: var(--texto-latte);
     background-color: var(--mantle-latte);
     border-radius: 8px;
 }

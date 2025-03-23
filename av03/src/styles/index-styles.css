@@ -1,8 +1,13 @@
+#sobre, #pets {
+    scroll-snap-align: center;
+}
+
 #intro {
     height: calc(100vh - 82px);
 
     & > * {
         position: absolute;
+        z-index: 1;
     }
 
     & img {
@@ -13,7 +18,7 @@
         object-fit: cover;
         width: 100%;
         height: calc(100vh - 82px);
-        z-index: -1;
+        z-index: 0;
     }
 }
 
