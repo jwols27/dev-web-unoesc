@@ -15,7 +15,7 @@ app.post('/pets', async (req, res) => {
         res.json(pet);
     } catch (error) {
         console.log(error);
-        res.status(400).json({ error: 'Error creating pet' });
+        res.status(400).json({ error: 'Erro ao criar pet' });
     }
 });
 
@@ -30,7 +30,7 @@ app.get('/pets/:id', async (req, res) => {
     if (pet) {
         res.json(pet);
     } else {
-        res.status(404).json({ error: 'Pet not found' });
+        res.status(404).json({ error: 'Pet não encontrado' });
     }
 });
 
@@ -43,7 +43,7 @@ app.put('/pets/:id', async (req, res) => {
         });
         res.json(pet);
     } catch (error) {
-        res.status(400).json({ error: 'Error updating pet' });
+        res.status(400).json({ error: 'Erro ao atualizar pet' });
     }
 });
 
@@ -51,13 +51,13 @@ app.delete('/pets/:id', async (req, res) => {
     const { id } = req.params;
     try {
         await prisma.pet.delete({ where: { id_pet: Number(id) } });
-        res.json({ message: 'Pet deleted successfully' });
+        res.json({ message: 'Pet removido com sucesso' });
     } catch (error) {
-        res.status(400).json({ error: 'Error deleting pet' });
+        res.status(400).json({ error: 'Erro ao remover pet' });
     }
 });
 
 const PORT = 5000;
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Servidor ativo em http://localhost:${PORT}`);
 });

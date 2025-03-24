@@ -28,43 +28,33 @@ const converterPet = (pet: Pet): Pet => {
 
 export const getPets = async (): Promise<Pet[]> => {
     try {
-        const response = await axios.get(`${API_URL}/pets`);
-        console.log(response.data);
-        return response.data;
+        const res = await axios.get(`${API_URL}/pets`);
+        console.log(res.data);
+        return res.data;
     } catch (error) {
-        console.error('Error fetching pets:', error);
+        console.error('Erro ao procurar pets:', error);
         throw error;
     }
 };
 
 export const getPetById = async (id: number): Promise<Pet> => {
     try {
-        const response = await axios.get(`${API_URL}/pets/${id}`);
-        return response.data;
+        const res = await axios.get(`${API_URL}/pets/${id}`);
+        return res.data;
     } catch (error) {
-        console.error(`Error fetching pet with id ${id}:`, error);
+        console.error(`Erro ao procurar o pet com ID ${id}:`, error);
         throw error;
     }
 };
 
 export const createPet = async (pet: Pet): Promise<Pet> => {
     try {
-        pet = converterPet(pet);
+        const { id_pet, ...novo } = converterPet(pet); // manda o pet sem o id
 
-        const novo: Omit<Pet, 'id_pet'> = {
-            nome: pet.nome,
-            especie: pet.especie,
-            raca: pet.raca,
-            sexo: pet.sexo,
-            data_nascimento: pet.data_nascimento,
-            imagem_url: pet.imagem_url
-        };
-
-        console.log(novo);
-        const response = await axios.post(`${API_URL}/pets`, novo);
-        return response.data;
+        const res = await axios.post(`${API_URL}/pets`, novo);
+        return res.data;
     } catch (error) {
-        console.error('Error creating pet:', error);
+        console.error('Erro ao criar pet:', error);
         throw error;
     }
 };
@@ -74,20 +64,20 @@ export const updatePet = async (id: number, pet: Pet): Promise<Pet> => {
         if (pet.data_nascimento) {
             pet.data_nascimento = new Date(pet.data_nascimento);
         }
-        const response = await axios.put(`${API_URL}/pets/${id}`, pet);
-        return response.data;
+        const res = await axios.put(`${API_URL}/pets/${id}`, pet);
+        return res.data;
     } catch (error) {
-        console.error(`Error updating pet with id ${id}:`, error);
+        console.error(`Erro ao atualizar pet com ID ${id}:`, error);
         throw error;
     }
 };
 
 export const deletePet = async (id: number): Promise<Pet> => {
     try {
-        const response = await axios.delete(`${API_URL}/pets/${id}`);
-        return response.data;
+        const res = await axios.delete(`${API_URL}/pets/${id}`);
+        return res.data;
     } catch (error) {
-        console.error(`Error deleting pet with id ${id}:`, error);
+        console.error(`Erro ao remover pet com ID ${id}:`, error);
         throw error;
     }
 };

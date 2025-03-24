@@ -1,6 +1,6 @@
 import { FormEvent, useState } from 'react';
-import TextInputJ from './TextInputJ.tsx';
-import TextAreaInputJ from './TextAreaInputJ.tsx';
+import TextInputJ from '../components/TextInputJ.tsx';
+import TextAreaInputJ from '../components/TextAreaInputJ.tsx';
 
 interface EmailJ {
     nome: string;

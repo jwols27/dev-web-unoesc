@@ -1,4 +1,4 @@
-import { EmailForm } from '../components/EmailForm.tsx';
+import { EmailForm } from './EmailForm.tsx';
 
 export default function SectionContato() {
     return (
