@@ -30,7 +30,8 @@ export default function TemplateAdmin() {
 
     const addItem = (p: Pet) => {
         createPet(p).then(() => {
-            getPets().then(setPets);
+            const novo = [...pets, p];
+            setPets(novo);
         });
     };
 
@@ -49,7 +50,7 @@ export default function TemplateAdmin() {
                 <button
                     className={'btn add-btn transform'}
                     onClick={() => {
-                        if (indexEdit < 0) setAddingItem(!addingItem);
+                        setAddingItem(indexEdit < 0 ? !addingItem : false);
                         setIndexEdit(-1);
                     }}
                 >
