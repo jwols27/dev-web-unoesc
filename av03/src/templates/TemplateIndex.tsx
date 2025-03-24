@@ -12,7 +12,11 @@ export default function TemplateIndex() {
                         Conheça pets, tanto pequenos quanto grandes, que
                         precisam de um lugar para morar.
                     </p>
-                    <a href={'#pets'} className="button" draggable="false">
+                    <a
+                        href={'#pets'}
+                        className="btn transform"
+                        draggable="false"
+                    >
                         Saiba mais 🔎
                     </a>
                 </div>

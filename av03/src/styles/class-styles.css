@@ -46,5 +46,97 @@
             color: var(--mauve-frappe);
         }
     }
+}
 
+.btn {
+    &.transform {
+        &:hover {
+            filter: brightness(1.1);
+        }
+
+        &:active {
+            transform: scale(0.98);
+        }
+    }
+
+    &.outlined.light {
+        background-color: transparent;
+        box-shadow: none;
+        color: var(--texto-latte);
+        border: 1px solid var(--texto-latte);
+
+        &:active {
+            background-color: var(--crust-latte);
+        }
+    }
+}
+
+.text-input {
+    display: flex;
+    flex-direction: column;
+
+    & label {
+        font-weight: bold;
+        margin-bottom: .2rem;
+    }
+
+    & input, input::placeholder, textarea, textarea::placeholder {
+        font-size: 1rem;
+        border-radius: 4px;
+        background-color: transparent;
+        padding: 0.5rem 0.75rem;
+    }
+
+    & ::placeholder {
+        opacity: 0.5;
+    }
+
+    & input.dark, input.dark::placeholder, textarea.dark, textarea.dark::placeholder {
+        color: var(--texto-branco);
+        border: 1px solid var(--mantle-latte);
+    }
+
+    & input.light, input.light::placeholder, textarea.light, textarea.light::placeholder {
+        color: var(--texto-latte);
+        border: 1px solid var(--overlay2-latte);
+    }
+
+    & input:focus, textarea:focus {
+        outline: none;
+    }
+
+    & input.light:focus, textarea.light:focus {
+        border: 1px solid var(--mauve-latte) !important;
+    }
+
+    & input.dark:focus, textarea.dark:focus {
+        border: 1px solid var(--mauve-frappe) !important;
+    }
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+
+    & label {
+        font-weight: bold;
+        margin-bottom: .2rem;
+    }
+
+    & select {
+        font-size: 1rem;
+        border-radius: 4px;
+        background-color: transparent;
+        padding: 0.5rem 0.75rem;
+    }
+
+    & select.dark {
+        color: var(--texto-branco);
+        border: 1px solid var(--mantle-latte);
+    }
+
+    & select.light {
+        color: var(--texto-latte);
+        border: 1px solid var(--overlay2-latte);
+    }
 }

@@ -169,11 +169,6 @@
     }
 }
 
-#contato-form input, #contato-form textarea {
-    color: var(--texto-branco);
-    border: 1px solid var(--mantle-latte);
-}
-
 @media screen and (max-width: 1300px) {
     #pets {
         gap: 2rem;

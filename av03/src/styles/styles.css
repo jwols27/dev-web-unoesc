@@ -9,6 +9,7 @@
     --crust-latte: #dce0e8;
 
     --mauve-frappe: #ca9ee6;
+    --green-frappe: #a6d189;
     --lavender-frappe: #babbf1;
     --overlay2-frappe: #737994;
     --surface0-frappe: #414559;
@@ -25,7 +26,7 @@
     box-sizing: border-box;
 }
 
-button, .button {
+button, .btn {
     display: inline-block;
     border: none;
     cursor: pointer;
@@ -38,14 +39,6 @@ button, .button {
     transition: all 200ms ease-in-out;
     padding: 0.75rem 2rem;
     text-decoration: none;
-
-    &:hover {
-        filter: brightness(1.1);
-    }
-
-    &:active {
-        transform: scale(0.98);
-    }
 }
 
 html {
@@ -71,18 +64,6 @@ body {
     & main {
         flex: 1;
     }
-}
-
-input, input::placeholder, textarea, textarea::placeholder {
-    font-size: 1rem;
-    border-radius: 4px;
-    background-color: transparent;
-    padding: 0.5rem 0.75rem;
-}
-
-textarea:focus, input:focus {
-    outline: none;
-    border: 1px solid var(--mauve-frappe) !important;
 }
 
 main {

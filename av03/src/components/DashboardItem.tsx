@@ -1,19 +1,12 @@
 import { MdDelete, MdEditSquare } from 'react-icons/md';
 import * as React from 'react';
-
-export interface Pet {
-    nome: string;
-    especie: string;
-    raca: string | undefined;
-    sexo: 'M' | 'F' | undefined;
-    data_nascimento: string;
-    imagem: string | undefined;
-}
+import { useMemo } from 'react';
+import { Pet } from '../services/PetService.ts';
 
 interface DashboardItemProps {
     index: number;
     pet: Pet;
-    onEdit: (index: number, pet: Pet) => void;
+    onEdit: (index: number) => void;
     onDelete: (index: number) => void;
 }
 
@@ -30,33 +23,45 @@ export const DashboardItem: React.FC<DashboardItemProps> = ({
             case 'F':
                 return '♀️';
             default:
-                return '❔';
+                return '❓';
         }
     }, [pet]);
 
     const editItem = () => {
-        onEdit(index, pet);
+        onEdit(index);
     };
 
     const deleteItem = () => {
         onDelete(index);
     };
 
+    const dataNascimento = useMemo(() => {
+        return new Date(pet.data_nascimento?.toString() ?? '').toLocaleString();
+    }, [pet]);
+
     return (
         <div className={'dashboard-item'}>
-            <img src={pet.imagem} alt={'Exemplo'} />
+            <img
+                src={pet.imagem_url == null ? undefined : pet.imagem_url}
+                alt={'Imagem'}
+            />
             <div className={'dashboard-item-info'}>
                 <b>{pet.nome}</b>
                 <p>
-                    {pet.especie} - {pet.raca ?? '\\'} {sexo}
+                    {pet.especie}{' '}
+                    {(pet.raca ?? '').length > 0 ? `- ${pet.raca} ` : ''}
+                    {sexo}
                 </p>
-                {pet.data_nascimento && <p>{pet.data_nascimento}</p>}
+                {pet.data_nascimento && <p>{dataNascimento}</p>}
             </div>
             <div className={'dashboard-item-crud'}>
-                <button className={'edit-btn'} onClick={editItem}>
+                <button className={'btn edit-btn transform'} onClick={editItem}>
                     <MdEditSquare />
                 </button>
-                <button className={'delete-btn'} onClick={deleteItem}>
+                <button
+                    className={'btn delete-btn transform'}
+                    onClick={deleteItem}
+                >
                     <MdDelete />
                 </button>
             </div>

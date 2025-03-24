@@ -1,41 +1,78 @@
 import '../styles/admin-styles.css';
-import { DashboardItem, Pet } from '../components/DashboardItem.tsx';
-import { useState } from 'react';
-
-// const exemplo: Pet = {
-//     nome: 'Mel',
-//     especie: 'Gato',
-//     raca: 'Sphynx',
-//     sexo: 'F',
-//     data_nascimento: '27/01/2023',
-//     imagem: 'http://localhost:5173/src/assets/mel.png'
-// };
+import { DashboardItem } from '../components/DashboardItem.tsx';
+import { useEffect, useState } from 'react';
+import {
+    createPet,
+    deletePet,
+    getPets,
+    Pet,
+    updatePet
+} from '../services/PetService.ts';
+import { MdAdd, MdCancel } from 'react-icons/md';
+import { DashboardManageItem } from '../components/DashboardManageItem.tsx';
 
 export default function TemplateAdmin() {
     const [pets, setPets] = useState<Pet[]>([]);
+    const [addingItem, setAddingItem] = useState<boolean>(false);
+    const [indexEdit, setIndexEdit] = useState<number>(-1);
 
-    const editItem = (index: number, pet: Pet | undefined) => {
-        console.log(index, pet);
-    };
+    useEffect(() => {
+        getPets().then(setPets);
+    }, []);
 
     const deleteItem = (index: number) => {
-        const novo = [...pets];
-        novo.splice(index, 1);
-        setPets(novo);
+        deletePet(pets[index].id_pet).then(() => {
+            const novo = [...pets];
+            novo.splice(index, 1);
+            setPets(novo);
+        });
+    };
+
+    const addItem = (p: Pet) => {
+        createPet(p).then(() => {
+            getPets().then(setPets);
+        });
+    };
+
+    const editItem = (index: number, p: Pet) => {
+        updatePet(p.id_pet, p).then((n) => {
+            const novo = [...pets];
+            novo[index] = n;
+            setPets(novo);
+        });
     };
 
     return (
         <main id={'main-admin'}>
-            <h2 id={'dashboard-title'} className={'card'}>
-                Gerenciar pets
-            </h2>
+            <div id={'dashboard-title'} className={'card'}>
+                <h2>Gerenciar pets</h2>
+                <button
+                    className={'btn add-btn transform'}
+                    onClick={() => {
+                        if (indexEdit < 0) setAddingItem(!addingItem);
+                        setIndexEdit(-1);
+                    }}
+                >
+                    {addingItem || indexEdit >= 0 ? <MdCancel /> : <MdAdd />}
+                </button>
+            </div>
             <div id={'dashboard-content'} className={'card'}>
+                {(addingItem || indexEdit >= 0) && (
+                    <DashboardManageItem
+                        onAddSubmit={addItem}
+                        onEditSubmit={editItem}
+                        index={indexEdit}
+                        petEditado={
+                            indexEdit >= 0 ? pets[indexEdit] : undefined
+                        }
+                    />
+                )}
                 {pets.map((pet, i) => (
                     <DashboardItem
                         key={`pet-${i}`}
                         index={i}
                         pet={pet}
-                        onEdit={editItem}
+                        onEdit={setIndexEdit}
                         onDelete={deleteItem}
                     />
                 ))}

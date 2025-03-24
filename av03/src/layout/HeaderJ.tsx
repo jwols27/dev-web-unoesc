@@ -5,7 +5,6 @@ export default function HeaderJ() {
     const admin = true;
     const location = useLocation();
     const index = useMemo(() => {
-        console.log(location.pathname);
         return location.pathname === '/';
     }, [location]);
 

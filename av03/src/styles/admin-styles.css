@@ -17,8 +17,17 @@
     color: var(--texto-frappe);
     border-color: var(--overlay2-frappe);
     border-bottom-width: 0;
-    margin: 0;
     padding: 1rem;
+    display: flex;
+    align-items: center;
+
+    & > * {
+        margin: 0;
+    }
+
+    & > h2 {
+        flex: 1;
+    }
 }
 
 #dashboard-content {
@@ -34,6 +43,15 @@
     }
 }
 
+#dashboard-add-item {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--surface0-latte);
+    margin: 0 .5rem;
+    padding: 1rem;
+    gap: .75rem;
+}
+
 .dashboard-item {
     display: flex;
     align-items: center;
@@ -46,7 +64,12 @@
         border-radius: 50%;
         border: 2px solid var(--base-frappe);
         height: 100%;
+        aspect-ratio: 1/1;
         transition: transform 100ms ease;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        font-size: .75rem;
 
         &:active {
             border-color: var(--mauve-latte);
@@ -64,7 +87,7 @@
             text-overflow: ellipsis;
             white-space: nowrap;
             overflow: hidden;
-            width: 8rem;
+            /*width: 8rem;*/
         }
     }
 }
@@ -72,13 +95,17 @@
 .dashboard-item-crud {
     display: flex;
     gap: .5rem;
+}
 
-    & button {
-        font-size: 2rem;
-        padding: .5rem;
-        border-radius: 0.5rem;
-        aspect-ratio: 1 / 1;
-    }
+.add-btn, .edit-btn, .delete-btn {
+    font-size: 2rem;
+    padding: .5rem;
+    border-radius: 0.5rem;
+    aspect-ratio: 1 / 1;
+}
+
+.add-btn {
+    background-color: var(--mauve-frappe);
 }
 
 .edit-btn {

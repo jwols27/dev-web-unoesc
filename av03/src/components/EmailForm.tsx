@@ -1,4 +1,6 @@
 import { FormEvent, useState } from 'react';
+import TextInputJ from './TextInputJ.tsx';
+import TextAreaInputJ from './TextAreaInputJ.tsx';
 
 interface EmailJ {
     nome: string;
@@ -27,35 +29,35 @@ export const EmailForm = () => {
             onSubmit={onSubmit}
         >
             <h3>Fale conosco!</h3>
-            <input
-                type="text"
-                id="nome"
-                name="nome"
-                placeholder="Nome completo"
+            <TextInputJ
+                name={'nome'}
+                placeholder={'Nome completo'}
+                theme={'dark'}
                 onChange={(e) => setEmail({ ...email, nome: e.target.value })}
                 required
             />
-            <input
-                type="text"
-                id="assunto"
-                name="assunto"
-                placeholder="Assunto"
+            <TextInputJ
+                name={'assunto'}
+                placeholder={'Assunto'}
+                theme={'dark'}
                 onChange={(e) =>
                     setEmail({ ...email, assunto: e.target.value })
                 }
                 required
             />
-            <textarea
-                id="mensagem"
-                name="mensagem"
-                placeholder="Mensagem"
+            <TextAreaInputJ
+                name={'mensagem'}
+                placeholder={'Mensagem'}
+                theme={'dark'}
                 required
                 onChange={(e) =>
                     setEmail({ ...email, mensagem: e.target.value })
                 }
                 rows={6}
-            ></textarea>
-            <button type="submit">Enviar</button>
+            />
+            <button className={'btn transform'} type="submit">
+                Enviar
+            </button>
         </form>
     );
 };
