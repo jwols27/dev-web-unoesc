@@ -26,9 +26,11 @@ const converterPet = (pet: Pet): Pet => {
     return pet;
 };
 
-export const getPets = async (): Promise<Pet[]> => {
+export const getPets = async (filtro: string = ''): Promise<Pet[]> => {
     try {
-        const res = await axios.get(`${API_URL}/pets`);
+        const res = await axios.get(`${API_URL}/pets`, {
+            params: { filtro: filtro.trim() }
+        });
         console.log(res.data);
         return res.data;
     } catch (error) {

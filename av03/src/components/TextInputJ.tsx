@@ -28,7 +28,7 @@ export default function TextInputJ({
         <div className="text-input" style={style}>
             {label && <label htmlFor={name}>{label}</label>}
             <input
-                value={value == null ? '' : value}
+                value={value === null ? '' : value}
                 name={name}
                 type={type}
                 placeholder={placeholder}

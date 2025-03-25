@@ -14,14 +14,23 @@ app.post('/pets', async (req, res) => {
         });
         res.json(pet);
     } catch (error) {
-        console.log(error);
+        console.error(error);
         res.status(400).json({ error: 'Erro ao criar pet' });
     }
 });
 
 app.get('/pets', async (req, res) => {
-    const pets = await prisma.pet.findMany();
-    res.json(pets);
+    const { filtro } = req.query;
+    try {
+        const pets = await prisma.pet.findMany({
+            where: { nome: { contains: filtro ? String(filtro) : undefined } },
+            orderBy: { nome: 'asc' }
+        });
+        res.json(pets);
+    } catch (error) {
+        console.error('Erro ao buscar pets:', error);
+        res.status(500).json({ error: 'Erro ao buscar pets' });
+    }
 });
 
 app.get('/pets/:id', async (req, res) => {
@@ -43,6 +52,7 @@ app.put('/pets/:id', async (req, res) => {
         });
         res.json(pet);
     } catch (error) {
+        console.error(error);
         res.status(400).json({ error: 'Erro ao atualizar pet' });
     }
 });
@@ -53,6 +63,7 @@ app.delete('/pets/:id', async (req, res) => {
         await prisma.pet.delete({ where: { id_pet: Number(id) } });
         res.json({ message: 'Pet removido com sucesso' });
     } catch (error) {
+        console.error(error);
         res.status(400).json({ error: 'Erro ao remover pet' });
     }
 });

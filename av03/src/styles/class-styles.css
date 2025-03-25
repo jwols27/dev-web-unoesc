@@ -140,3 +140,16 @@
         border: 1px solid var(--overlay2-latte);
     }
 }
+
+.badge {
+    padding: 0.25rem .5rem .25rem .75rem;
+    color: var(--texto-branco);
+    background-color: var(--mauve-latte);
+    width: fit-content;
+    border-radius: 1rem;
+    font-size: .75rem;
+
+    & > a {
+        cursor: pointer;
+    }
+}

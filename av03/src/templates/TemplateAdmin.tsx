@@ -8,16 +8,27 @@ import {
     Pet,
     updatePet
 } from '../services/PetService.ts';
-import { MdAdd, MdCancel } from 'react-icons/md';
+import { MdAdd, MdCancel, MdFilterAlt, MdFilterAltOff } from 'react-icons/md';
 import { DashboardManageItem } from '../components/DashboardManageItem.tsx';
+import { toast, ToastContainer } from 'react-toastify';
+import { DashboardFilter } from '../components/DashboardFilter.tsx';
+import { MoonLoader } from 'react-spinners';
 
 export default function TemplateAdmin() {
     const [pets, setPets] = useState<Pet[]>([]);
     const [addingItem, setAddingItem] = useState<boolean>(false);
     const [indexEdit, setIndexEdit] = useState<number>(-1);
+    const [filtering, setFiltering] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
-        getPets().then(setPets);
+        setLoading(true);
+        getPets().then((lista) => {
+            setTimeout(() => {
+                setPets(lista);
+                setLoading(false);
+            }, 1000);
+        });
     }, []);
 
     const deleteItem = (index: number) => {
@@ -25,6 +36,7 @@ export default function TemplateAdmin() {
             const novo = [...pets];
             novo.splice(index, 1);
             setPets(novo);
+            toast('Pet removido com sucesso!');
         });
     };
 
@@ -32,6 +44,7 @@ export default function TemplateAdmin() {
         createPet(p).then(() => {
             const novo = [...pets, p];
             setPets(novo);
+            toast('Pet adicionado com sucesso!');
         });
     };
 
@@ -40,13 +53,35 @@ export default function TemplateAdmin() {
             const novo = [...pets];
             novo[index] = n;
             setPets(novo);
+            toast('Pet atualizado com sucesso!');
         });
+    };
+
+    const filterItems = (filtro: string) => {
+        setLoading(true);
+        getPets(filtro).then((lista) => {
+            setTimeout(() => {
+                setPets(lista);
+                setLoading(false);
+                if (!filtro) return;
+                if (lista.length === 0) return toast(`Nenhum pet encontrado.`);
+                if (lista.length === 1) return toast(`1 pet encontrado.`);
+                toast(`${lista.length} pets encontrados.`);
+            }, 1000);
+        });
+        // setFiltrado(true);
     };
 
     return (
         <main id={'main-admin'}>
             <div id={'dashboard-title'} className={'card'}>
                 <h2>Gerenciar pets</h2>
+                <button
+                    className={'btn add-btn transform'}
+                    onClick={() => setFiltering(!filtering)}
+                >
+                    {filtering ? <MdFilterAltOff /> : <MdFilterAlt />}
+                </button>
                 <button
                     className={'btn add-btn transform'}
                     onClick={() => {
@@ -68,21 +103,33 @@ export default function TemplateAdmin() {
                         }
                     />
                 )}
-                {pets.map((pet, i) => (
-                    <DashboardItem
-                        key={`pet-${i}`}
-                        index={i}
-                        pet={pet}
-                        onEdit={setIndexEdit}
-                        onDelete={deleteItem}
-                    />
-                ))}
-                {pets.length === 0 && (
+                {filtering && <DashboardFilter filterItems={filterItems} />}
+                {loading && (
+                    <div className={'dashboard-item flex-row align-center'}>
+                        <MoonLoader
+                            color={'#8839ef'}
+                            loading={loading}
+                            size={50}
+                        />
+                    </div>
+                )}
+                {!loading &&
+                    pets.map((pet, i) => (
+                        <DashboardItem
+                            key={`pet-${i}`}
+                            index={i}
+                            pet={pet}
+                            onEdit={setIndexEdit}
+                            onDelete={deleteItem}
+                        />
+                    ))}
+                {!loading && pets.length === 0 && (
                     <div className={'dashboard-item'}>
                         Nenhum pet encontrado.
                     </div>
                 )}
             </div>
+            <ToastContainer position="bottom-center" hideProgressBar />
         </main>
     );
 }
