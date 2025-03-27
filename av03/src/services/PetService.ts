@@ -12,6 +12,12 @@ export interface Pet {
     imagem_url: string | null;
 }
 
+export const getQuantidadePets = (lista: Pet[]) => {
+    if (lista.length === 0) return `Nenhum pet encontrado.`;
+    if (lista.length === 1) return `1 pet encontrado.`;
+    return `${lista.length} pets encontrados.`;
+};
+
 const converterPet = (pet: Pet): Pet => {
     if (!pet.imagem_url) {
         pet.imagem_url = null;

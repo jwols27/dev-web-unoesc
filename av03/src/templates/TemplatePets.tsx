@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { getPets, Pet } from '../services/PetService.ts';
+import { getPets, getQuantidadePets, Pet } from '../services/PetService.ts';
 import { MoonLoader } from 'react-spinners';
 import '../styles/pets-styles.css';
 import { PetGridItem } from '../components/PetGridItem.tsx';
@@ -21,9 +21,7 @@ export const TemplatePets = () => {
     }, []);
 
     const qtdPets = useMemo(() => {
-        if (pets.length === 0) return `Nenhum pet encontrado.`;
-        if (pets.length === 1) return `1 pet encontrado.`;
-        return `${pets.length} pets encontrados.`;
+        return getQuantidadePets(pets);
     }, [pets]);
 
     const filterItems = (filtro: string) => {
@@ -33,7 +31,7 @@ export const TemplatePets = () => {
                 setPets(lista);
                 setLoading(false);
                 if (!filtro) return;
-                toast(qtdPets);
+                toast(getQuantidadePets(lista));
             }, 1000);
         });
     };

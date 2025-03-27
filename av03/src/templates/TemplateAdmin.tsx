@@ -5,6 +5,7 @@ import {
     createPet,
     deletePet,
     getPets,
+    getQuantidadePets,
     Pet,
     updatePet
 } from '../services/PetService.ts';
@@ -64,9 +65,7 @@ export const TemplateAdmin = () => {
                 setPets(lista);
                 setLoading(false);
                 if (!filtro) return;
-                if (lista.length === 0) return toast(`Nenhum pet encontrado.`);
-                if (lista.length === 1) return toast(`1 pet encontrado.`);
-                toast(`${lista.length} pets encontrados.`);
+                toast(getQuantidadePets(lista));
             }, 1000);
         });
     };
