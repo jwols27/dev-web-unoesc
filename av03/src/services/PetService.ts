@@ -31,7 +31,6 @@ export const getPets = async (filtro: string = ''): Promise<Pet[]> => {
         const res = await axios.get(`${API_URL}/pets`, {
             params: { filtro: filtro.trim() }
         });
-        console.log(res.data);
         return res.data;
     } catch (error) {
         console.error('Erro ao procurar pets:', error);

@@ -21,7 +21,7 @@
 }
 
 .card {
-    border: 2px solid var(--overlay2-latte);
+    border: 1px solid var(--overlay2-latte);
     color: var(--texto-latte);
     background-color: var(--mantle-latte);
     border-radius: 8px;
@@ -59,14 +59,27 @@
         }
     }
 
-    &.outlined.light {
-        background-color: transparent;
-        box-shadow: none;
-        color: var(--texto-latte);
-        border: 1px solid var(--texto-latte);
+    &.outlined {
+        &.light {
+            background-color: transparent;
+            box-shadow: none;
+            color: var(--texto-latte);
+            border: 1px solid var(--texto-latte);
 
-        &:active {
-            background-color: var(--crust-latte);
+            &:active {
+                background-color: var(--crust-latte);
+            }
+        }
+
+        &.dark {
+            background-color: transparent;
+            box-shadow: none;
+            color: var(--texto-frappe);
+            border: 1px solid var(--texto-frappe);
+
+            &:active {
+                background-color: var(--overlay2-frappe);
+            }
         }
     }
 }
@@ -92,8 +105,8 @@
     }
 
     & input.dark, input.dark::placeholder, textarea.dark, textarea.dark::placeholder {
-        color: var(--texto-branco);
-        border: 1px solid var(--mantle-latte);
+        color: var(--texto-frappe);
+        border: 1px solid var(--texto-frappe);
     }
 
     & input.light, input.light::placeholder, textarea.light, textarea.light::placeholder {
@@ -143,13 +156,21 @@
 
 .badge {
     padding: 0.25rem .5rem .25rem .75rem;
-    color: var(--texto-branco);
-    background-color: var(--mauve-latte);
     width: fit-content;
     border-radius: 1rem;
     font-size: .75rem;
 
     & > a {
         cursor: pointer;
+    }
+
+    &.light {
+        color: var(--texto-branco);
+        background-color: var(--mauve-latte);
+    }
+
+    &.dark {
+        color: var(--texto-branco);
+        background-color: var(--mauve-latte);
     }
 }

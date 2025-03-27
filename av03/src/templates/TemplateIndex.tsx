@@ -1,8 +1,9 @@
 import { banners, gatos } from '../data/imagens.ts';
 import SectionContato from './SectionContato.tsx';
 import '../styles/index-styles.css';
+import { NavLink } from 'react-router';
 
-export default function TemplateIndex() {
+export const TemplateIndex = () => {
     return (
         <main id={'main-index'}>
             <section id="intro" className="banner">
@@ -13,7 +14,7 @@ export default function TemplateIndex() {
                         precisam de um lugar para morar.
                     </p>
                     <a
-                        href={'#pets'}
+                        href={'#missao'}
                         className="btn transform"
                         draggable="false"
                     >
@@ -22,17 +23,20 @@ export default function TemplateIndex() {
                 </div>
                 <img src={banners.cestaGatos} alt="Cesta de gatos" />
             </section>
-            <section id="pets" className="banner flex-row">
-                <div id="pets-content">
-                    <h2>Pets</h2>
+            <section id="missao" className="banner flex-row">
+                <div id="missao-content">
+                    <h2>Nossa missão</h2>
                     <p>
                         Nós cuidamos de todos os animais que precisam, sempre
                         procurando uma casa pra eles. Você quer conhecer alguns
                         dos pets que resgatamos?
                     </p>
                     <p>Conheça a Mel, o Tino, o Nagito, e o Café!</p>
+                    <NavLink to={'/pets'} className="btn outlined light">
+                        Veja mais!
+                    </NavLink>
                 </div>
-                <div id="pets-show">
+                <div id="missao-show">
                     <div>
                         <img
                             src={gatos.mel}
@@ -74,10 +78,11 @@ export default function TemplateIndex() {
                     <h2>Sobre a nossa ONG</h2>
                     <p>
                         A ONG <b>Amigos da Juju</b> foi criada pela nossa
-                        fundadora Jujuba <i>"Juju"</i>, nascendo de seu amor
-                        incondicional pelos animais e de seu desejo de oferecer
-                        uma segunda chance para aqueles que foram abandonados,
-                        resgatados, ou que precisam de um lar.
+                        fundadora Jujuba <i>"Juju"</i> e sua amiga Ana, nascendo
+                        do amor incondicional pelos animais de Jujuba e de seu
+                        desejo de oferecer uma segunda chance para aqueles que
+                        foram abandonados, resgatados, ou que precisam de um
+                        lar.
                     </p>
                     <p>
                         Nossa missão não para no resgate dos animais: promovemos
@@ -97,4 +102,4 @@ export default function TemplateIndex() {
             <SectionContato />
         </main>
     );
-}
+};

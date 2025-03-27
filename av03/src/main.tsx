@@ -3,9 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router';
 import App from './App.tsx';
 import './styles/styles.css';
 import './styles/class-styles.css';
-
-import TemplateIndex from './templates/TemplateIndex.tsx';
-import TemplateAdmin from './templates/TemplateAdmin.tsx';
+import { TemplateAdmin, TemplateIndex, TemplatePets } from './templates';
 
 createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
@@ -13,6 +11,7 @@ createRoot(document.getElementById('root')!).render(
             <Route element={<App />}>
                 <Route index element={<TemplateIndex />} />
                 <Route path={'/admin'} element={<TemplateAdmin />} />
+                <Route path={'/pets'} element={<TemplatePets />} />
             </Route>
         </Routes>
     </BrowserRouter>

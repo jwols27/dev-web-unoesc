@@ -16,11 +16,12 @@ export default function HeaderJ() {
                     {!index && <NavLink to={'/'}>Início</NavLink>}
                     {index && (
                         <>
-                            <a href={'#pets'}>Pets</a>
+                            <a href={'#missao'}>Missão</a>
                             <a href={'#sobre'}>Sobre</a>
                             <a href={'#contato'}>Contato</a>
                         </>
                     )}
+                    <NavLink to={'/pets'}>Pets</NavLink>
                     {admin && <NavLink to={'/admin'}>Administrar</NavLink>}
                 </div>
             </div>

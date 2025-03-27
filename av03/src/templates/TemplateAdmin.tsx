@@ -14,7 +14,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import { DashboardFilter } from '../components/DashboardFilter.tsx';
 import { MoonLoader } from 'react-spinners';
 
-export default function TemplateAdmin() {
+export const TemplateAdmin = () => {
     const [pets, setPets] = useState<Pet[]>([]);
     const [addingItem, setAddingItem] = useState<boolean>(false);
     const [indexEdit, setIndexEdit] = useState<number>(-1);
@@ -69,7 +69,6 @@ export default function TemplateAdmin() {
                 toast(`${lista.length} pets encontrados.`);
             }, 1000);
         });
-        // setFiltrado(true);
     };
 
     return (
@@ -103,7 +102,12 @@ export default function TemplateAdmin() {
                         }
                     />
                 )}
-                {filtering && <DashboardFilter filterItems={filterItems} />}
+                {filtering && (
+                    <DashboardFilter
+                        type={'dashboard'}
+                        filterItems={filterItems}
+                    />
+                )}
                 {loading && (
                     <div className={'dashboard-item flex-row align-center'}>
                         <MoonLoader
@@ -132,4 +136,4 @@ export default function TemplateAdmin() {
             <ToastContainer position="bottom-center" hideProgressBar />
         </main>
     );
-}
+};

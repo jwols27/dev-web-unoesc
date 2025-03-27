@@ -32,14 +32,14 @@ export const EmailForm = () => {
             <TextInputJ
                 name={'nome'}
                 placeholder={'Nome completo'}
-                theme={'dark'}
+                dark
                 onChange={(e) => setEmail({ ...email, nome: e.target.value })}
                 required
             />
             <TextInputJ
                 name={'assunto'}
                 placeholder={'Assunto'}
-                theme={'dark'}
+                dark
                 onChange={(e) =>
                     setEmail({ ...email, assunto: e.target.value })
                 }

@@ -7,6 +7,10 @@
     width: 100%;
     margin: auto;
     padding: 2rem 0;
+
+    > .card {
+        border-width: 2px;
+    }
 }
 
 #dashboard-title {
@@ -16,7 +20,7 @@
     background-color: var(--base-frappe);
     color: var(--texto-frappe);
     border-color: var(--overlay2-frappe);
-    border-bottom-width: 0;
+    border-bottom-width: 0 !important;
     padding: 1rem;
     display: flex;
     align-items: center;
@@ -35,7 +39,7 @@
     width: 100%;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    border-top-width: 0;
+    border-top-width: 0 !important;
     padding: 0;
     overflow: hidden;
 
@@ -144,7 +148,7 @@
 }
 
 @media screen and (max-width: 50rem) {
-    .card {
+    #main-admin .card {
         border-radius: 0;
         border-left-width: 0;
         border-right-width: 0;
